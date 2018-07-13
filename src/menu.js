@@ -13,25 +13,18 @@
 // 定义siderbar菜单
 const sidebarMenu = [
   {
-    key: 'index',  // route时url中的值
-    name: '菜单哈哈哈',  // 在菜单中显示的名称
-    icon: 'smile',  // 图标是可选的
+    key: 'app',  // route时url中的值
+    name: '软件管理',  // 在菜单中显示的名称
+    icon: 'appstore',  // 图标是可选的
     child: [
       {
-        key: 'option1',
-        name: '模拟CRUD',
-        icon: 'play-circle',   // 二级三级菜单也可以带图标
+        key: 'select',
+        name: '查看软件',
       },
       {
-        key: 'option2',
-        name: '图片DEMO',
-        icon: 'android',
-      },
-      {
-        key: 'option3',
-        name: '自定义操作',
-        icon: 'bulb',
-      },
+        key: 'insert',
+        name: '新建软件',
+      }
     ],
   },
   {

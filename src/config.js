@@ -2,16 +2,16 @@
  * 定义整个项目的全局配置
  */
 
-'use strict';
 
 // 约定优于配置
 // 我可以提供尽量多的配置, 但尽量不要太个性化, 接口的路径/名称/格式之类的
 // 遵循统一的规范, 好维护, 交给其他人也比较简单
 
 module.exports = {
-  name: 'OOXX管理后台',  // 项目的名字
-  favicon: 'http://jxy.me/favicon.ico',  // 设置网页的favicon, 可以是外链, 也可以是本地
-  footer: '<a target="_blank" href="http://jxy.me">foolbear</a>版权所有 © 2015-2099',  // footer中显示的字, 可以嵌入html标签
+  name: '盘古系统',  // 项目的名字
+  favicon: '/favicon.ico',  // 设置网页的favicon, 可以是外链, 也可以是本地
+  footer: '<a target="_blank" href="http://www.smjcco.com">四川思明今创科技有限公司</a>版权所有 © 2018',  // footer中显示的字,
+  // 可以嵌入html标签
 
   debug: true,  // 是否开启debug模式, 不会请求后端接口, 使用mock的数据
 
@@ -28,22 +28,22 @@ module.exports = {
     warn: [],
     error: ['loggerA', 'loggerB'],  // 示例, 对于loggerA和loggerB使用error级别, 其他logger使用默认的info级别
   },
-
+  user: null,
   api: {  // 对后端请求的相关配置
-    host: 'http://localhost:12345',  // 调用ajax接口的地址, 默认值空, 如果是跨域的, 服务端要支持CORS
-    path: '/api',  // ajax请求的路径
+    host: 'http://localhost:8001',  // 调用ajax接口的地址, 默认值空, 如果是跨域的, 服务端要支持CORS
+    path: '/',  // ajax请求的路径
     timeout: 15000,  // 请求的超时时间, 单位毫秒
   },
 
   login: {  // 登录相关配置
-    getCurrentUser: '/getCurrentUser',  // 后端必须要提供接口校验当前用户的身份, 如果拿不到用户信息, 才会尝试登录
+    getCurrentUser: 'user',  // 后端必须要提供接口校验当前用户的身份, 如果拿不到用户信息, 才会尝试登录
 
     // 登录有两种情况:
 
     // 1. 使用sso登录, 直接跳转就可以了
     sso: '',  // 是否使用单点登录? 是的话我会把地址encode后加到后面, 然后跳转, 如果这个是空字符串, 说明不使用单点登录
     // 2. 不使用sso, 使用我提供的一个登录界面
-    validate: '/login',  // 校验用户信息, 表单的submit地址. 如果登录成功, 必须返回用户名
+    validate: 'user/login',  // 校验用户信息, 表单的submit地址. 如果登录成功, 必须返回用户名
 
     logout: '/logout',  // 退出的url, 用户点击退出时, 浏览器会直接跳转到这个链接
   },
@@ -129,10 +129,11 @@ module.exports = {
       while (tmp.charAt(index) === '/') {
         index--;
       }
-      if (index < 0)
+      if (index < 0) {
         paths.push('');
-      else
+      } else {
         paths.push(tmp.substring(0, index + 1));
+      }
     } else {
       paths.push('');
     }
@@ -148,10 +149,11 @@ module.exports = {
       while (tmp.charAt(end) === '/') {
         end--;
       }
-      if (begin > end)
+      if (begin > end) {
         paths.push('');
-      else
+      } else {
         paths.push(tmp.substring(begin, end + 1));
+      }
     } else {
       paths.push('');
     }

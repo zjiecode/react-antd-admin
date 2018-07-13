@@ -58,9 +58,8 @@ class Logger {
       const logger = new Logger(name);
       Logger.loggerMap.set(name, logger);
       return logger;
-    } else {
-      return Logger.defaultLogger;
     }
+    return Logger.defaultLogger;
   }
 
   constructor(name) {
@@ -126,13 +125,15 @@ class Logger {
    */
   info(pattern, ...args) {
     // 先判断日志级别
-    if (this.logLevel > Logger.LOG_LEVEL_INFO)
+    if (this.logLevel > Logger.LOG_LEVEL_INFO) {
       return;
+    }
 
-    if (this.name)
+    if (this.name) {
       args.unshift(`${this.name}: ${pattern}`);
-    else
+    } else {
       args.unshift(pattern);
+    }
     console.log.apply(console, args);
   }
 
@@ -143,14 +144,16 @@ class Logger {
    * @param args
    */
   error(pattern, ...args) {
-    if (this.logLevel > Logger.LOG_LEVEL_ERROR)
+    if (this.logLevel > Logger.LOG_LEVEL_ERROR) {
       return;
+    }
 
     args.unshift('background: red; color: #bada55;');
-    if (this.name)
+    if (this.name) {
       args.unshift(`%c${this.name}: ${pattern}`);
-    else
+    } else {
       args.unshift(`%c${pattern}`);
+    }
     console.error.apply(console, args);
   }
 
@@ -161,16 +164,17 @@ class Logger {
    * @param args
    */
   debug(pattern, ...args) {
-    if (this.logLevel > Logger.LOG_LEVEL_DEBUG)
+    if (this.logLevel > Logger.LOG_LEVEL_DEBUG) {
       return;
+    }
 
     args.unshift('background: black; color: #bada55;');
-    if (this.name)
+    if (this.name) {
       args.unshift(`%c${this.name}: ${pattern}`);
-    else
+    } else {
       args.unshift(`%c${pattern}`);
+    }
     console.debug.apply(console, args);
-
   }
 
   /**
@@ -180,14 +184,16 @@ class Logger {
    * @param args
    */
   warn(pattern, ...args) {
-    if (this.logLevel > Logger.LOG_LEVEL_WARN)
+    if (this.logLevel > Logger.LOG_LEVEL_WARN) {
       return;
+    }
 
     args.unshift('background: yellow; color: black;');
-    if (this.name)
+    if (this.name) {
       args.unshift(`%c${this.name}: ${pattern}`);
-    else
+    } else {
       args.unshift(`%c${pattern}`);
+    }
     console.warn.apply(console, args);
   }
 }

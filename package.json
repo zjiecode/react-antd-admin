@@ -58,6 +58,7 @@
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
+    "flyio": "^0.5.9",
     "superagent": "2.3.0"
   },
   "scripts": {

@@ -3,6 +3,6 @@
 // 注意! config/dataSchema/querySchema文件的命名应该遵循CamelCase原则, 不要包含下划线/中划线
 
 module.exports = {
-  showExport: true,  // 显示导出按钮, 默认true
-  showImport: true,  // 显示导入按钮, 默认true
+  showExport: false,  // 显示导出按钮, 默认true
+  showImport: false,  // 显示导入按钮, 默认true
 }
