@@ -2,10 +2,10 @@
 
 * 新增“TAB模式”, 可以平行显示多个菜单项了, 参考[DEMO](http://jiangxy.github.io/react-antd-admin/tabMode)
     * 使用TAB模式有一些注意事项, 相关说明见[关于TAB模式](docs/TabMode.md)
-* DBTable组件的querySchema/dataSchema可以异步加载了, 可以对每个表分别配置, 例子: [testAction.config.js](src/schema/testAction.config.js#L7)
+* DBTable组件的querySchema/dataSchema可以异步加载了, 可以对每个表分别配置, 例子: [testAction.Config.js](src/schema/testAction.config.js#L7)
     * 更详细的配置请参考[异步schema相关配置](docs/AsyncSchema.md), 
 * DBTable新增`cascader`的showType, 用于级联选择, 例子: [testSms.querySchema.js](src/schema/testSms.querySchema.js#L38)
-* DBTable的默认配置移到[config.js](src/config.js#L68)中, 可按需修改
+* DBTable的默认配置移到[Config.js](src/config.js#L68)中, 可按需修改
 * 更新[react-java-goos](https://github.com/jiangxy/react-java-goos)到1.3.0
 * 更新后端接口文档, 新增异步schema相关API说明, 见[后端接口规范](docs/Ajax.md)
 
@@ -35,7 +35,7 @@
   * 使用了一些[HOC](https://facebook.github.io/react/docs/higher-order-components.html)之类的技巧, 将parse schema的过程独立出来, 效率应该会好很多
   * 优化querySchema, 可以配置图标/默认值等, 参考[test.querySchema.js](src/schema/test.querySchema.js)
   * 优化dataSchema, 支持showType属性, 支持配置默认值/校验规则/disabled等, 参考[test.dataSchema.js](src/schema/test.dataSchema.js)
-  * 优化tableConfig, 新增showInsert/showUpdate/showDelete配置, 参考[test.config.js](src/schema/test.config.js)和[DBTable.DEFAULT_CONFIG](src/config.js#L68)
+  * 优化tableConfig, 新增showInsert/showUpdate/showDelete配置, 参考[test.Config.js](src/schema/test.config.js)和[DBTable.DEFAULT_CONFIG](src/config.js#L68)
   * insert/update/delete后, 不再刷新整个表格
   * 其他用户体验上的优化
 * 重写mock数据的逻辑

@@ -35,7 +35,7 @@
 
 本地schema和远程schema合并后，就可以正常渲染DBTable组件了。
 
-对于异步schema，我提供了两个配置，可以在`{tableName}.config.js`中对每个表格分别配置，用户也可以修改[DBTable的全局配置](../src/config.js#L68)：
+对于异步schema，我提供了两个配置，可以在`{tableName}.Config.js`中对每个表格分别配置，用户也可以修改[DBTable的全局配置](../src/config.js#L68)：
 
 ## asyncSchema
 

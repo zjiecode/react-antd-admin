@@ -16,25 +16,15 @@ const sidebarMenu = [
     key: 'app',  // route时url中的值
     name: '软件管理',  // 在菜单中显示的名称
     icon: 'appstore',  // 图标是可选的
-    child: [
-      {
-        key: 'select',
-        name: '查看软件',
-      },
-      {
-        key: 'insert',
-        name: '新建软件',
-      }
-    ],
   },
   {
     key: 'alone',
     name: '我没有子菜单',
-    icon: 'clock-circle',
+    icon: 'clock-circle'
   },
   {
     key: 'alone2',
-    name: '我没有图标',
+    name: '我没有图标'
   },
   {
     key: 'noiconhaha',
@@ -42,9 +32,9 @@ const sidebarMenu = [
     child: [
       {
         key: 'nesnesnes',
-        name: 'N64',
-      },
-    ],
+        name: 'N64'
+      }
+    ]
   },
   {
     key: 'daohang',
@@ -53,7 +43,7 @@ const sidebarMenu = [
     child: [
       {
         key: '555',
-        name: '选项5',
+        name: '选项5'
       },
       {
         key: 'sanji',  // 最多只能到三级导航
@@ -63,24 +53,24 @@ const sidebarMenu = [
           {
             key: '666',
             name: '选项6',
-            icon: 'check',
+            icon: 'check'
           },
           {
             key: '777',
             name: '选项7',
-            icon: 'close',
+            icon: 'close'
           },
           {
             key: '888',
-            name: '选项8',
+            name: '选项8'
           },
           {
             key: '999',
-            name: '选项9',
-          },
-        ],
-      },
-    ],
+            name: '选项9'
+          }
+        ]
+      }
+    ]
   },
   {
     key: 'test',
@@ -89,16 +79,16 @@ const sidebarMenu = [
     child: [
       {
         key: 'aaa',
-        name: '选项a',
+        name: '选项a'
       },
       {
         key: 'bbb',
         name: '选项b',
-        icon: 'pause',
+        icon: 'pause'
       },
       {
         key: 'ccc',
-        name: '选项c',
+        name: '选项c'
       },
       {
         key: 'sanjiaaa',  // 最多只能到三级导航
@@ -107,9 +97,9 @@ const sidebarMenu = [
           {
             key: '666aa',
             name: '选项6',
-            icon: 'meh',
-          },
-        ],
+            icon: 'meh'
+          }
+        ]
       },
       {
         key: 'sanjibbb',  // 最多只能到三级导航
@@ -117,15 +107,15 @@ const sidebarMenu = [
         child: [
           {
             key: '666bb',
-            name: '选项6',
-          },
-        ],
-      },
-    ],
-  },
-];
+            name: '选项6'
+          }
+        ]
+      }
+    ]
+  }
+]
 
-export default sidebarMenu;
+export default sidebarMenu
 
 // 定义header菜单, 格式和sidebar是一样的
 // 特殊的地方在于, 我规定header的最右侧必须是用户相关操作的菜单, 所以定义了一个特殊的key
@@ -141,12 +131,12 @@ export const headerMenu = [
         icon: 'bulb',
         // 对于headerMenu的菜单项, 可以让它跳到外部地址, 如果设置了url属性, 就会打开一个新窗口
         // 如果不设置url属性, 行为和sidebarMenu是一样的, 激活特定的组件, 注意在index.js中配置好路由, 否则会404
-        url: 'http://jxy.me',
+        url: 'http://jxy.me'
       },
       {
         key: 'user222',
         name: '药药切克闹',
-        icon: 'rocket',
+        icon: 'rocket'
       },
       {
         key: 'user333',
@@ -155,16 +145,16 @@ export const headerMenu = [
           {
             key: 'user333aaa',
             name: 'user333aaa',
-            icon: 'windows',
+            icon: 'windows'
           },
           {
             key: 'user333bbb',
             name: 'user333bbb',
-            url: 'http://jxy.me',
-          },
-        ],
-      },
-    ],
+            url: 'http://jxy.me'
+          }
+        ]
+      }
+    ]
   },
   {
     key: 'headerMenu2',
@@ -175,31 +165,31 @@ export const headerMenu = [
         key: 'headerMenu111',
         name: '菜单项1',
         icon: 'windows',
-        url: 'http://jxy.me',
+        url: 'http://jxy.me'
       },
       {
         key: '菜单项2',
         name: '短信表管理',
-        url: 'http://jxy.me',
+        url: 'http://jxy.me'
       },
       {
         key: '菜单项3',
         name: '选项3',
         icon: 'chrome',
-        url: 'http://jxy.me',
-      },
-    ],
+        url: 'http://jxy.me'
+      }
+    ]
   },
   {
     key: 'headerMenu3',
     name: '我没有子菜单',
     icon: 'setting',
-    url: 'http://jxy.me',
+    url: 'http://jxy.me'
   },
   {
     key: 'headerMenu4',
     name: '我也没有子菜单',
-    icon: 'shopping-cart',
+    icon: 'shopping-cart'
   },
   {
     key: 'headerMenu5',
@@ -207,7 +197,7 @@ export const headerMenu = [
     child: [
       {
         key: 'headerMenu5000000',
-        name: '二级导航无子菜单',
+        name: '二级导航无子菜单'
       },
       {
         key: 'headerMenu51111',
@@ -217,14 +207,14 @@ export const headerMenu = [
           {
             key: 'headerMenu51111aa',
             name: '选项6',
-            icon: 'meh',
+            icon: 'meh'
           },
           {
             key: 'headerMenu51111bb',
             name: '选项7',
-            icon: 'inbox',
-          },
-        ],
+            icon: 'inbox'
+          }
+        ]
       },
       {
         key: 'headerMenu52222',
@@ -232,14 +222,14 @@ export const headerMenu = [
         child: [
           {
             key: 'headerMenu52222aa',
-            name: '选项8',
+            name: '选项8'
           },
           {
             key: 'headerMenu52222bb',
-            name: '选项9',
-          },
-        ],
-      },
-    ],
-  },
-];
+            name: '选项9'
+          }
+        ]
+      }
+    ]
+  }
+]

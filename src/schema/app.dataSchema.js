@@ -51,18 +51,19 @@ module.exports = [
     dataType: 'int',
     showType: 'select',
     options: [{ key: '1', value: '安卓' }, { key: '2', value: '苹果' }, { key: '3', value: 'PC' }],
+    validator: [{ type: 'string', required: true, message: '请选择类型' }],
     // 对于dataSchema可以设置校验规则, querySchema不能设置
     // 设置校验规则, 参考https://github.com/yiminghe/async-validator#rules
   },
   {
-    key: 'user_id',
+    key: 'createUserId',
     title: '创建者',
     dataType: 'int',
     showType: 'normal',
     showInForm: false,
   },
   {
-    key: 'create_time',
+    key: 'createTime',
     title: '创建时间',
     dataType: 'datetime',
     showType: 'normal',

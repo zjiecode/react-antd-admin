@@ -1,6 +1,6 @@
 import {applyMiddleware, createStore, compose, combineReducers} from 'redux';
 import createLogger from 'redux-logger';
-import globalConfig from 'config.js';
+import globalConfig from 'Config.js';
 import Sidebar from './Sidebar.js';
 import Login from './Login.js';
 

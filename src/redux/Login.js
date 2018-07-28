@@ -1,5 +1,5 @@
 // 登录成功的事件
-export const loginSuccessCreator = (user) => {
+export const loginSuccessActionCreator = (user) => {
   return { type: 'LOGIN_SUCCESS', payload: user };
 };
 

@@ -14,7 +14,6 @@ module.exports = [
     // 目前可用的dataType: int/float/varchar/datetime
     // 为啥我会把字符串定义为varchar而不是string呢...我也不知道, 懒得改了...
     dataType: 'int',
-
     // 显示类型, 一些可枚举的字段, 比如type, 可以被显示为单选框或下拉框
     // 默认显示类型是normal, 就是一个普通的输入框, 这时可以省略showType字段
     // 目前可用的showType: normal/select/radio/between/checkbox/multiSelect/cascader
@@ -37,6 +36,6 @@ module.exports = [
     dataType: 'int',
     showType: 'select',  // 下拉框选择, antd版本升级后, option的key要求必须是string, 否则会有个warning, 后端反序列化时要注意
     options: [{ key: '1', value: '安卓' }, { key: '2', value: '苹果' }, { key: '3', value: 'PC' }],
-    defaultValue: '1', // 这个defaultValue必须和options中的key是对应的
+    // defaultValue: '', // 这个defaultValue必须和options中的key是对应的
   },
 ];

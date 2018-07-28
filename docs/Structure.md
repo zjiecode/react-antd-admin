@@ -19,10 +19,10 @@
 | src/utils | 各种工具类 |
 | src/redux | redux相关的store/reducer/action/initState等都扔在这里 |
 | src/index.js | 编译js时的入口。通俗的说，是将各种React组件组装起来的地方 |
-| src/config.js | 项目的配置文件 |
+| src/Config.js | 项目的配置文件 |
 | src/menu.js | 侧边栏的配置文件 |
 | index.html.template | html文件模版 |
-| webpack.config.js | webpack的配置文件 |
+| webpack.Config.js | webpack的配置文件 |
 | webpack.config.prod.js | 生产环境下webpack的配置文件，会做一些压缩/优化之类的。 |
 
 ## git规范

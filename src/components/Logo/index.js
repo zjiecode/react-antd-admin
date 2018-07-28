@@ -1,5 +1,5 @@
 import React from 'react';
-import globalConfig from 'config.js';
+import globalConfig from 'Config.js';
 import './index.less';
 
 /**
