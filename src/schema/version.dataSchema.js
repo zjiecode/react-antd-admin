@@ -1,6 +1,5 @@
 import React from 'react'
 import { Icon } from 'antd'
-import { Link } from 'react-router'
 
 // 定义某个表的dataSchema, 结构跟querySchema很相似, 见下面的例子
 // 注意: 所有的key不能重复
@@ -33,58 +32,66 @@ module.exports = [
     showInForm: false // 这一列是否要在表单中展示, 默认true. 这种列一般都是不需要用户输入的, DB就会给一个默认值那种
   },
   {
-    key: 'code',
-    title: '代码',
+    key: 'appId',
+    title: '软件id',
     dataType: 'varchar',  // 对于普通的input框, 可以设置addonBefore/addonAfter
-    placeholder: '软件代码',
-    validator: [{ type: 'string', required: true, message: '代码必填' }]
+    placeholder: '软件id',
+    validator: [{ type: 'string', required: true, message: '软件id' }],
+    disabled: true, // 表单中这一列是否禁止编辑, 默认false
+    showInForm: false
   },
   {
-    key: 'name',
-    title: '名字',
+    key: 'versionName',
+    title: '版本名字',
     dataType: 'varchar',
     showType: 'normal',
-    validator: [{ type: 'string', required: true, message: '名字必填' }]
+    validator: [{ type: 'string', required: true, message: '版本名字' }]
   },
   {
-    key: 'type',
-    title: '类型',
-    dataType: 'int',
-    showType: 'select',
-    options: [{ key: '1', value: '安卓' }, { key: '2', value: '苹果' }, { key: '3', value: 'PC' }],
-    validator: [{ type: 'string', required: true, message: '请选择类型' }]
-    // 对于dataSchema可以设置校验规则, querySchema不能设置
-    // 设置校验规则, 参考https://github.com/yiminghe/async-validator#rules
-  },
-  {
-    key: 'createUserId',
-    title: '创建者',
-    dataType: 'int',
+    key: 'versionCode',
+    title: '版本号',
+    dataType: 'varchar',
     showType: 'normal',
-    showInForm: false
-  },
-  {
-    key: 'createTime',
-    title: '创建时间',
-    dataType: 'datetime',
-    showType: 'normal',
-    showInForm: false
+    validator: [{ type: 'string', required: true, message: '版本号' }]
   },
   {
     key: 'des',
-    title: '说明',
+    title: '版本说明',
+    dataType: 'varchar',
+    showType: 'textarea',
+    validator: [{ type: 'string', required: true, message: '版本说明' }]
+  },
+  {
+    key: 'url',
+    title: '文件',
+    dataType: 'varchar',
+    showType: 'file',
+    validator: [{ type: 'string', required: true, message: '请选择文件' }]
+  },
+  {
+    key: 'createUserId',
+    title: '创建用户',
     dataType: 'varchar',
     showType: 'normal',
-    validator: [{ type: 'string', required: true, message: '说明必填' }]
+    showInForm: false
+  },
+  {
+    key: 'filterIdStart',
+    title: '目标用户下界',
+    dataType: 'int',
+    showType: 'normal'
+  },
+  {
+    key: 'filterIdEnd',
+    title: '目标用户上界',
+    dataType: 'int',
+    showType: 'normal'
   },
   {
     // 这个key是我预先定义好的, 注意不要冲突
     key: 'singleRecordActions',
     title: '操作',
     actions: [
-      {
-        render: (record) => <Link to={`/app/version?appId=${record.id}`} >版本管理</Link >
-      },
       {
         type: 'update',
         name: '编辑'

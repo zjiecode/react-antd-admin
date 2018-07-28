@@ -18,9 +18,9 @@ const sidebarMenu = [
     icon: 'appstore',  // 图标是可选的
   },
   {
-    key: 'alone',
-    name: '我没有子菜单',
-    icon: 'clock-circle'
+    key: 'version',
+    name: '版本管理',
+    icon: 'switcher'
   },
   {
     key: 'alone2',

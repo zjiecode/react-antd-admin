@@ -32,7 +32,9 @@ const routes = (
     <Router history={hashHistory} >
       <Route path="/" component={App} >
         <IndexRoute component={Welcome} />
-        <Route path="app" tableName="app" getComponent={DBTableContainer} />
+        <Route path="app" tableName="app" getComponent={DBTableContainer} >
+          <Route path="version" tableName="version" getComponent={DBTableContainer} />
+        </Route >
         
         <Route path="daohang" >
           <Route path="555" component={Hello} />

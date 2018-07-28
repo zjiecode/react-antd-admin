@@ -6,10 +6,10 @@ import InnerTable from './InnerTable.js'
 import InnerPagination from './InnerPagination.js'
 import TableUtils from './TableUtils.js'
 import './index.less'
-import Utils from '../../utils'
 import globalConfig from '../../config.js'
 import Logger from '../../utils/Logger'
 import ajax from '../../sm-utils/Http'
+import Utils from '../../sm-utils/Common'
 
 
 const logger = Logger.getLogger('DBTable')
@@ -103,7 +103,14 @@ class DBTable extends React.PureComponent {
     // 但是在tab模式下, 为了防止不同tab之间的干扰, 每个tab下都必须是一个"独立"的组件, 换句话说有很多不同DBTable组件的实例
     // 类似单例和多实例的区别
     if (globalConfig.tabMode.enable === true) {
-      logger.debug('ignore props update under tabMode')
+      this.processQueryParams()
+      this.setState({
+        data: [],
+        tableLoading: false,
+        currentPage: 1,
+        total: 0,
+        loadingSchema: false
+      }, this.refresh)
       return
     }
     
@@ -336,6 +343,11 @@ class DBTable extends React.PureComponent {
    * @param queryObj
    */
   handleFormSubmit = async (queryObj) => {
+    const params = Utils.getAllQueryParams()
+    // 如果url上有参数
+    if (Object.keys(params).length > 0) {
+      queryObj = Object.assign({}, queryObj, params)
+    }
     logger.debug('handleFormSubmit, queryObj = %o', queryObj)
     // 这时查询条件已经变了, 要从第一页开始查
     const data = await this.select(queryObj, 1, this.state.pageSize)

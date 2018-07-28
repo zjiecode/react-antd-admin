@@ -9,7 +9,7 @@ import {
   Affix
 } from 'antd'
 import Logger from '../../utils/Logger'
-import Utils from '../../utils'
+import Utils from '../../sm-utils/Common'
 import ajax from '../../sm-utils/Http'
 import moment from 'moment'
 import ImageSlider from '../ImageSlider'
@@ -554,7 +554,8 @@ class InnerTable extends React.PureComponent {
   async handleInsert(obj) {
     const hide = message.loading('正在新增...', 0)
     try {
-      const data = await ajax.post(`/${this.props.tableName}`, obj)
+      const reqData = Object.assign({}, obj, Utils.getAllQueryParams())
+      const data = await ajax.post(`/${this.props.tableName}`, reqData)
       hide()
       if (data) {
         notification.success({
