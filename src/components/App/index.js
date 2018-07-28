@@ -281,7 +281,7 @@ const mapStateToProps = (state) => {
   return {
     collapse: state.Sidebar.collapse,  // 侧边栏是否折叠
     login: state.Login.login,  // 是否登录
-    userName: state.Login.userName  // 登录后的用户名
+    userName: state.Login.user ? state.Login.user.nickName : null  // 登录后的用户名
   }
 }
 

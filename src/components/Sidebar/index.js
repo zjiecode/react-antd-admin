@@ -65,6 +65,9 @@ class Sidebar extends React.PureComponent {
     // 菜单项是从配置中读取的, parse过程还是有点复杂的
     // map函数很好用
     const menu = items.map((level1) => {
+      if (level1.hidden) {
+        return
+      }
       // parse一级菜单
       paths.push(level1.key)
       level1KeySet.add(level1.key)
