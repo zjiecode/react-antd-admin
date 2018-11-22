@@ -164,6 +164,16 @@ class FileUploader extends React.Component {
     }
   }
   
+  //自定义上传的OSS里面
+  customRequest = (handle) => {
+    OSSUtil.put(handle.file.name, handle.file).then(res => {
+      handle.onSuccess({ data: res.url, success: true }, handle.file)
+    }).catch(e => {
+      console.log(JSON.stringify(e))
+      handle.onError(e)
+    })
+  }
+  
   /**
    * 调用上传接口之前校验一次
    *
@@ -171,16 +181,12 @@ class FileUploader extends React.Component {
    * @returns {boolean}
    */
   beforeUpload = (file) => {
-    console.log(file)
-    OSSUtil.put("test.file",file).then(v=>console.log(v)).catch(e=>console.log(e))
-    
     if (this.sizeLimit) {
       if (file.size / 1024 > this.sizeLimit) {
         message.error(`${this.forImage ? '图片' : '文件'}过大，最大只允许${this.sizeLimit}KB`)
         return false
       }
     }
-    // OSSUtil.put("test.obj",file);
     return true
   }
   
@@ -215,7 +221,6 @@ class FileUploader extends React.Component {
         tmp.url = tmp.response.data  // 服务端返回的url
       }
     }
-    
     // 上传失败
     if (file.status === 'error') {
       // debug模式下, 上传是必定失败的, 为了测试用, 给一个默认图片
@@ -330,8 +335,8 @@ class FileUploader extends React.Component {
           onChange={this.handleChange}
           beforeUpload={this.beforeUpload}
           accept={this.accept}
-          withCredentials={globalConfig.isCrossDomain()}
-        >
+          customRequest={this.customRequest}
+          withCredentials={globalConfig.isCrossDomain()} >
           {this.renderUploadButton()}
         </Upload >
         {/*只有上传图片时才需要这个预览modal*/}

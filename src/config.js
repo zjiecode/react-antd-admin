@@ -13,7 +13,7 @@ module.exports = {
   footer: '<a target="_blank" href="http://www.smjcco.com">四川思明今创科技有限公司</a>版权所有 © 2018',  // footer中显示的字,
   // 可以嵌入html标签
   
-  debug: true,  // 是否开启debug模式, 不会请求后端接口, 使用mock的数据
+  debug: false,  // 是否开启debug模式, 不会请求后端接口, 使用mock的数据
   
   tabMode: {  // tab模式相关配置
     enable: true,  // 是否开启tab模式
