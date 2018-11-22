@@ -1,5 +1,16 @@
 import fly from 'flyio'
 import env from './Env'
+import ls from './LocalStorage'
+
+
+fly.interceptors.request.use((request) => {
+  //给所有请求添加自定义header
+  let user = ls.get('user')
+  if (user) {
+    request.headers['token'] = ls.get('user').token
+  }
+  return request
+})
 
 /**
  * 网络请求封装
